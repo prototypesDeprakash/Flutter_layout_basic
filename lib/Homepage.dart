@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:layout_basic/responsive/desktop_body.dart';
+import 'package:layout_basic/responsive/mobile_body.dart';
+import 'package:layout_basic/responsive/responsive.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -12,11 +15,8 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: currentWidth < 392 ? Colors.amber : Colors.deepOrange,
-      body: Center(
-          child: Text(
-        currentWidth.toString(),
-      )),
+      body: responsive_layout(
+          mobileBody: Mymobilebody(), desktopBody: Mydesktopbody()),
     );
   }
 }
